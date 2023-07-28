@@ -8,9 +8,9 @@ namespace LinkedListProblem
         {
             Console.WriteLine("Welcome To liked List Programs!");
             CustomLinkedList customLinkedList = new CustomLinkedList();
-            customLinkedList.AddLast(56);
-            customLinkedList.AddLast(30);
-            customLinkedList.AddLast(70);
+            customLinkedList.Append(56);
+            customLinkedList.Append(30);
+            customLinkedList.Append(70);
             customLinkedList.Display();
         }
     }
