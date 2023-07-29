@@ -7,30 +7,7 @@ namespace LinkedListProblem
     public class CustomLinkedList
     {
         public Node head;
-        public void AddLast(int data)
-        {
-            Node newNode = new Node(data);
-            if (head == null)
-            {
-                head = newNode;
-                Console.WriteLine("{0} is inserted at lastNode", newNode.data);
-            }
-            else
-            {
-                Node lastNode = GetLastNode();
-                lastNode.next = newNode;
-                Console.WriteLine("{0} is inserted at lastNode", newNode.data);
-            }
-        }
-        private Node GetLastNode()
-        {
-            Node temp = head;
-            while (temp.next != null)
-            {
-                temp = temp.next;
-            }
-            return temp;
-        }
+        
         public Node Search(int key)
         {
             Node current = head;
@@ -44,40 +21,40 @@ namespace LinkedListProblem
             }
             return null; 
         }
-        public void Append(int data)
+        public void Delete(int key)
         {
-            AddLast(data);
-        }
-        public void InsertBetweenNodes(int data1, int data2, int newData)
-        {
-            Node newNode = new Node(newData);
-
-            Node temp = head;
-            while (temp != null && temp.data != data1)
-            {
-                temp= temp.next;
-            }
-            if (temp == null)
-                return;
-            newNode.next = temp.next;
-            temp.next = newNode;
-        }
-
-        public void Display()
-        {
-            Node temp = head;
             if (head == null)
+                return;
+
+            // If the node to be deleted is the head node
+            if (head.data == key)
             {
-                Console.WriteLine("Linked is Emptyp");
+                head = head.next;
+                return;
             }
-            else
+
+            Node current = head;
+            Node prev = null;
+            while (current != null && current.data != key)
             {
-                while (temp != null)
-                {
-                    Console.WriteLine(temp.data);
-                    temp = temp.next;
-                }
+                prev = current;
+                current = current.next;
             }
+            if (current == null)
+                return;
+            
+            prev.next = current.next;
         }
-    }
+        public int Size()
+        {
+            int count = 0;
+            Node current = head;
+            while (current != null)
+            {
+                count++;
+                current = current.next;
+            }
+            return count;
+        }
+        }
 }
