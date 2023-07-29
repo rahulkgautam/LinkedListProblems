@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinkedListProblem
 {
-    class CustomLinkedList
+    public class CustomLinkedList
     {
         public Node head;
         public void AddLast(int data)
@@ -31,35 +31,38 @@ namespace LinkedListProblem
             }
             return temp;
         }
+        public Node Search(int key)
+        {
+            Node current = head;
+            while (current != null)
+            {
+                if (current.data == key)
+                {
+                    return current;
+                }
+                current = current.next;
+            }
+            return null; 
+        }
         public void Append(int data)
         {
             AddLast(data);
         }
-        public void Search(int data)
+        public void InsertAfterKey(int key, int data)
         {
-            bool isFound = false;
+            Node newNode = new Node(data);
             Node temp = head;
-            if (temp != null)
+            while (temp != null)
             {
-                while (temp != null)
+                if (temp.data == key)
                 {
-                    if (temp.data == data)
-                    {
-                        isFound = true;
-                        Console.WriteLine("{0} Node is Found", temp.data);
-                        break;
-                    }
-                    else
-                        temp = temp.next;
+                    newNode.next = temp.next;
+                    temp.next = newNode;
+                    break;
                 }
-                if (!isFound)
-                    Console.WriteLine("{0} Node is not found", data);
+                temp = temp.next;
             }
-            else
-                Console.WriteLine("LinkedList is Empty");
-
         }
-
         public void Display()
         {
             Node temp = head;
