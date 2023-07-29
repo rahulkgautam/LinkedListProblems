@@ -35,15 +35,23 @@ namespace LinkedListProblem
         {
             AddLast(data);
         }
-        public void DeleteFirst()
+        public void DeleteLast()
         {
+            Node temp = head;
             if (head == null)
-                Console.WriteLine("LinkedList is empty");
+                Console.WriteLine("No nodes are present");
+            else if (head.next == null)
+                head = null;
             else
             {
-                Console.WriteLine("{0} is removed from likedlist", head.data);
-                head = head.next;
+                while (temp.next.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = null;
             }
+
+
 
         }
         public void Display()
