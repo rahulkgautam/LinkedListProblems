@@ -35,25 +35,31 @@ namespace LinkedListProblem
         {
             AddLast(data);
         }
-        public void DeleteLast()
+        public void Search(int data)
         {
+            bool isFound = false;
             Node temp = head;
-            if (head == null)
-                Console.WriteLine("No nodes are present");
-            else if (head.next == null)
-                head = null;
-            else
+            if (temp != null)
             {
-                while (temp.next.next != null)
+                while (temp != null)
                 {
-                    temp = temp.next;
+                    if (temp.data == data)
+                    {
+                        isFound = true;
+                        Console.WriteLine("{0} Node is Found", temp.data);
+                        break;
+                    }
+                    else
+                        temp = temp.next;
                 }
-                temp.next = null;
+                if (!isFound)
+                    Console.WriteLine("{0} Node is not found", data);
             }
-
-
+            else
+                Console.WriteLine("LinkedList is Empty");
 
         }
+
         public void Display()
         {
             Node temp = head;

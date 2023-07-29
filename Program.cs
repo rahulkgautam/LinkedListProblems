@@ -10,8 +10,8 @@ namespace LinkedListProblem
             CustomLinkedList customLinkedList = new CustomLinkedList();
             customLinkedList.Append(56);
             customLinkedList.Append(30);
-            customLinkedList.Append(70);           
-            customLinkedList.DeleteLast();
+            customLinkedList.Append(70);
+            customLinkedList.Search(30);
             customLinkedList.Display();
            
         }
