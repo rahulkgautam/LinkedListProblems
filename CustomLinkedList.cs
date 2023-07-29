@@ -48,21 +48,21 @@ namespace LinkedListProblem
         {
             AddLast(data);
         }
-        public void InsertAfterKey(int key, int data)
+        public void InsertBetweenNodes(int data1, int data2, int newData)
         {
-            Node newNode = new Node(data);
+            Node newNode = new Node(newData);
+
             Node temp = head;
-            while (temp != null)
+            while (temp != null && temp.data != data1)
             {
-                if (temp.data == key)
-                {
-                    newNode.next = temp.next;
-                    temp.next = newNode;
-                    break;
-                }
-                temp = temp.next;
+                temp= temp.next;
             }
+            if (temp == null)
+                return;
+            newNode.next = temp.next;
+            temp.next = newNode;
         }
+
         public void Display()
         {
             Node temp = head;
