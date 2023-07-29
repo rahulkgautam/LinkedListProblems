@@ -4,12 +4,12 @@ using System.Text;
 
 namespace LinkedListProblem
 {
-    public class Node
+    public class Node<T> where T : IComparable<T>
     {
-        public int data;
-        public Node next;
+        public T data;
+        public Node<T> next;
 
-        public Node(int data)
+        public Node(T data)
         {
             this.data = data;
         }

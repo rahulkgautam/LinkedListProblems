@@ -6,13 +6,12 @@ namespace LinkedListProblem
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Welcome To liked List Programs!");
-            //CustomLinkedList customLinkedList = new CustomLinkedList();
-            //customLinkedList.Append(56);
-            ////customLinkedList.Append(30);
-            //customLinkedList.Append(70);
-            //customLinkedList.Display();
-
+            SortedLinkedList<int> sortedList = new SortedLinkedList<int>();
+            sortedList.Add(56);
+            sortedList.Add(30);
+            sortedList.Add(40);
+            sortedList.Add(70);
+            sortedList.Display();
         }
     }
 }
